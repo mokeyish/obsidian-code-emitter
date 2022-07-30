@@ -21,9 +21,12 @@
  
  // zone.js will overwrite Object.defineProperty
  const rawObjectDefineProperty = Object.defineProperty;
- 
+
+
+ const NODE_ENV = (typeof process !== 'undefined' ? process.env.NODE_ENV : undefined) as 'development' | 'test' | 'production' ?? 'production';
+
  const variableWhiteListInDev =
-   process.env.NODE_ENV === 'development' || (window as any).__QIANKUN_DEVELOPMENT__
+     NODE_ENV === 'development' || (window as any).__QIANKUN_DEVELOPMENT__
      ? [
          // for react hot reload
          // see https://github.com/facebook/create-react-app/blob/66bf7dfc43350249e2f09d138a20840dae8a0a4a/packages/react-error-overlay/src/index.js#L180
@@ -94,7 +97,7 @@ function makeScope(fake: Record<PropertyKey, any>, p: PropertyKey) {
  
  const useNativeWindowForBindingsProps = new Map<PropertyKey, boolean>([
    ['fetch', true],
-   ['mockDomAPIInBlackList', process.env.NODE_ENV === 'test'],
+   ['mockDomAPIInBlackList', NODE_ENV === 'test'],
  ]);
  
  function createFakeWindow(globalContext: Window) {
@@ -135,7 +138,7 @@ function makeScope(fake: Record<PropertyKey, any>, p: PropertyKey) {
            p === 'parent' ||
            p === 'self' ||
            p === 'window' ||
-           (process.env.NODE_ENV === 'test' && (p === 'mockTop' || p === 'mockSafariTop'))
+           (NODE_ENV === 'test' && (p === 'mockTop' || p === 'mockSafariTop'))
          ) {
            descriptor.configurable = true;
            /*
@@ -188,7 +191,7 @@ function makeScope(fake: Record<PropertyKey, any>, p: PropertyKey) {
    }
  
    inactive() {
-     if (process.env.NODE_ENV === 'development') {
+     if (NODE_ENV === 'development') {
        console.info(`[qiankun:sandbox] ${this.name} modified global properties restore...`, [
          ...this.updatedValueSet.keys(),
        ]);
@@ -248,7 +251,7 @@ function makeScope(fake: Record<PropertyKey, any>, p: PropertyKey) {
            return true;
          }
  
-         if (process.env.NODE_ENV === 'development') {
+         if (NODE_ENV === 'development') {
            console.warn(`[qiankun] Set window.${p.toString()} while sandbox destroyed or inactive in ${name}!`);
          }
  
@@ -273,7 +276,7 @@ function makeScope(fake: Record<PropertyKey, any>, p: PropertyKey) {
          if (
            p === 'top' ||
            p === 'parent' ||
-           (process.env.NODE_ENV === 'test' && (p === 'mockTop' || p === 'mockSafariTop'))
+           (NODE_ENV === 'test' && (p === 'mockTop' || p === 'mockSafariTop'))
          ) {
            // if your master app in an iframe context, allow these props escape the sandbox
            if (globalContext === globalContext.parent) {
