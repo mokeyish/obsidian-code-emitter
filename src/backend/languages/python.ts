@@ -10,9 +10,13 @@ if (typeof process !== 'undefined' && typeof process.browser === 'undefined') {
 const cdn = 'https://cdn.jsdelivr.net/gh/mokeyish/pyodide-dist@0.21.0a3/';
 
 export default (function() {
-    let engine: PyodideInterface;
+    let engine: PyodideInterface | undefined = undefined;
     let stdio: CodeOutput | undefined = undefined;
+    let load
     const backend: Backend = async (code, output) => {
+        if (!engine) {
+            await load();
+        }
         stdio = output;
         try {
             await engine.runPythonAsync(code);
@@ -21,8 +25,7 @@ export default (function() {
         }
     }
     backend.loading = true;
-
-    (async () => {
+    load = async () => {
         const loader = await urlImport<typeof loadPyodide>(
             `${cdn}pyodide.js`,
             () => ( window.loadPyodide )
@@ -33,12 +36,8 @@ export default (function() {
             stderr:(s) => stdio?.error(s)
         });
         await engine.loadPackage("micropip")
-    })().then(() => {
         console.log('python loaded.');
         backend.loading = false;
-    });
-
-
-
+    };
     return backend
 })();

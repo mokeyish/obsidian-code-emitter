@@ -13,9 +13,13 @@ export default class MyPlugin extends Plugin {
         const codeEl = el.querySelector('pre>code');
         if (codeEl && codeEl.className.startsWith(langPrefix)) {
             const lang = codeEl.className.substring(langPrefix.length).toLowerCase();
-            const k = backend[lang]
-            if (k && k.loading !== true) {
-                ctx.addChild(new CodeRunWidgetView(codeEl.parentElement, lang, codeEl.getText()));
+            if (backend[lang]) {
+                ctx.addChild(new CodeRunWidgetView(
+                    codeEl.parentElement,
+                    lang,
+                    codeEl.getText(),
+                    ctx.sourcePath
+                ));
             }
         } else {
             // console.log(el, ctx);
@@ -34,16 +38,22 @@ export default class MyPlugin extends Plugin {
 
 class CodeRunWidgetView extends MarkdownRenderChild {
     widget?: RunWidget;
+    lang: string;
+    code: string;
+    sourcePath: string;
 
-    constructor(containerEl: HTMLElement, private lang: string, private code: string) {
+    constructor(containerEl: HTMLElement, lang: string, code: string, sourcePath: string) {
         super(containerEl);
+        this.lang = lang;
+        this.code = code;
+        this.sourcePath = sourcePath;
     }
 
     onload() {
-        const {containerEl, lang, code} = this
+        const {containerEl, lang, code, sourcePath} = this
         this.widget = new RunWidget({
             target: containerEl,
-            props: {lang, code}
+            props: {lang, code, sourcePath}
         })
     }
 
