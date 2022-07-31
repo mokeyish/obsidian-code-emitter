@@ -16,3 +16,7 @@ Currently, support languages:
 
 ![.](./screenshots/code-emitter.gif)
 
+## Installation
+
+1. Create plugin folder `<your obsidian vault>/.obsidian\plugins\code-emitter`
+2. Download files from [releases](https://github.com/mokeyish/obsidian-code-emitter/releases) into plugin folder.
