@@ -12,8 +12,9 @@ export default class MyPlugin extends Plugin {
     async injectRunCode(el: HTMLElement, ctx: MarkdownPostProcessorContext) {
         const codeEl = el.querySelector('pre>code');
         if (codeEl && codeEl.className.startsWith(langPrefix)) {
-            const lang = codeEl.className.substring(langPrefix.length);
-            if (backend[lang]) {
+            const lang = codeEl.className.substring(langPrefix.length).toLowerCase();
+            const k = backend[lang]
+            if (k && k.loading !== true) {
                 ctx.addChild(new CodeRunWidgetView(codeEl.parentElement, lang, codeEl.getText()));
             }
         } else {

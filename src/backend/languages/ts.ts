@@ -1,17 +1,31 @@
-import type { CodeOutput } from '..';
-
-import * as ts from 'typescript';
-import {ScriptTarget} from 'typescript';
+import urlImport from '../../lib/url_import';
+import type {Backend, CodeOutput} from '..';
+import type * as typescript from 'typescript';
 
 import js from './js';
 
-export default async function run(code: string, output: CodeOutput): Promise<void> {
-    return new Promise(async (resolve, reject) => {
-        let jsCode = ts.transpile(`(async () => { ${code} })();`, {
-            module: ts.ModuleKind.ESNext,
-            target: ScriptTarget.ES2018
-        });
-        await js(jsCode, output);
-        resolve();
+const cdn = 'https://cdn.jsdelivr.net/npm/typescript@4.7.4/lib/typescript.min.js';
+
+export default (function () {
+    let tsc: typeof typescript;
+    const backend: Backend = function(code: string, output: CodeOutput): Promise<void> {
+        return new Promise(async (resolve, reject) => {
+            let jsCode = tsc.transpile(`(async () => { ${code} })();`, {
+                module: tsc.ModuleKind.ESNext,
+                target: tsc.ScriptTarget.ES2018
+            });
+            await js(jsCode, output);
+            resolve();
+        })
+    }
+    backend.loading = true;
+
+    (async () => {
+        tsc = await urlImport<typeof typescript>(cdn, () => window.ts);
+    })().then(() => {
+        backend.loading = false;
+        console.log('typescript loaded.');
     })
-}
+
+    return backend
+})() as Backend;

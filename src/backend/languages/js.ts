@@ -2,7 +2,7 @@ import type { CodeOutput } from '..';
 import { ProxySandbox } from '../../lib/sandbox';
 
 
-export default async function run(code: string, output: CodeOutput): Promise<void> {
+export default async function (code: string, output: CodeOutput): Promise<void> {
 
   return new Promise(async (resolve, reject) => {
     const sandbox = new ProxySandbox('t');

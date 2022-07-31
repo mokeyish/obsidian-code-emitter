@@ -10,6 +10,9 @@ Currently, support languages:
 - Kotlin
 - JavaScript
 - TypeScript
+- Python
+- Java
 
 
 ![.](./screenshots/code-emitter.gif)
+

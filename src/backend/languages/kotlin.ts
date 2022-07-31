@@ -1,4 +1,4 @@
-import type { CodeOutput } from '..';
+import type {CodeOutput} from '..';
 
 const url = 'https://api.kotlinlang.org//api/1.7.10/compiler/run';
 
@@ -13,7 +13,7 @@ interface KotlinArgs {
 }
 
 
-export default  async function run(code: string, output: CodeOutput): Promise<void> {
+export default async function(code: string, output: CodeOutput): Promise<void> {
   const body: KotlinArgs = {
     args: '',
     confType: 'java',

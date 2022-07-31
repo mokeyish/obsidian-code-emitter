@@ -2,7 +2,7 @@ import type { CodeOutput } from '..';
 
 const url = 'https://play.rust-lang.org/execute';
 
-export default  async function run(code: string, output: CodeOutput): Promise<void> {
+export default  async function(code: string, output: CodeOutput): Promise<void> {
     const data = {
         "channel": "stable",
         "mode": "debug",
