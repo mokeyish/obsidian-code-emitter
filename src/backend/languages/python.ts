@@ -14,7 +14,11 @@ export default (function() {
     let stdio: CodeOutput | undefined = undefined;
     const backend: Backend = async (code, output) => {
         stdio = output;
-        await engine.runPythonAsync(code);
+        try {
+            await engine.runPythonAsync(code);
+        } catch (e) {
+            output.error(e);
+        }
     }
     backend.loading = true;
 
@@ -28,6 +32,7 @@ export default (function() {
             stdout: (s) => stdio?.write(s),
             stderr:(s) => stdio?.error(s)
         });
+        await engine.loadPackage("micropip")
     })().then(() => {
         console.log('python loaded.');
         backend.loading = false;
