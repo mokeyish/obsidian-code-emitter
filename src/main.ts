@@ -1,8 +1,9 @@
+import './app.scss';
 import type {MarkdownPostProcessorContext} from 'obsidian';
 import {Plugin, Platform, MarkdownRenderChild} from 'obsidian';
 import backend from "./backend";
 import RunWidget from './RunWidget.svelte';
-import './app.scss';
+
 
 const langPrefix = 'language-';
 
