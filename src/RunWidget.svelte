@@ -14,6 +14,7 @@
     export let lang: string;
     export let code: string;
     export let sourcePath: string;
+    export let autoRun: boolean = false
 
     $: cacheKey = `code-emitter-cache-${sourcePath}`;
     $: codeSum = md5(code).toString();
@@ -59,7 +60,7 @@
         const r = readFromCache();
         if (r) {
             codeOutput.set(r);
-        } else {
+        } else if (autoRun) {
             await runCode();
         }
     });

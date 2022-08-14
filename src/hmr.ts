@@ -4,11 +4,11 @@ import { normalize, join} from 'path';
 
 declare global {
     interface Window {
-        hmr(plugin: Plugin): void;
+        hmr: typeof hmr
     }
 }
 
-Window.prototype.hmr = function (plugin: Plugin): void {
+const hmr = (plugin: Plugin, wait= 500) => {
     if (Platform.isMobile) {
         return;
     }
@@ -36,11 +36,13 @@ Window.prototype.hmr = function (plugin: Plugin): void {
         }
     };
 
-    plugin.registerEvent(vault.on('raw', debounce(onChange, 500)));
+    plugin.registerEvent(vault.on('raw', debounce(onChange, wait)));
 
-    adapter.startWatchPath(pluginDir);
     plugin.register(() => adapter.stopWatchPath(pluginDir));
-};
+    adapter.startWatchPath(pluginDir);
+}
 
-
+if (!window.hmr) {
+    Window.prototype.hmr = hmr
+}
 export {};
