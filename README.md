@@ -14,6 +14,12 @@ Currently, support languages:
 - Java
 
 
+**Note**: Only `Python`、`TypeScript`、`JavaScript` are run locally in sandbox(js / webassembly). Other's will send
+code to third-party website to eval the results (eg: https://play.kotlinlang.org, https://play.rust-lang.org).
+Please take care to avoid sending your potentially-sensitive source code.
+
+
+
 ![.](./screenshots/code-emitter.gif)
 
 ## Installation
