@@ -3,6 +3,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/mokeyish/obsidian-code-emitter?display_name=tag&include_prereleases)
 ![GitHub all releases](https://img.shields.io/github/downloads/mokeyish/obsidian-code-emitter/total?style=flat-square)
 
+
 This plugin allows code blocks executed interactively like jupyter notebooks. 
 
 Currently, support languages:
@@ -19,6 +20,10 @@ code to third-party website to eval the results (eg: https://play.kotlinlang.org
 Please take care to avoid sending your potentially-sensitive source code.
 
 
+**Ads**: You might like my other plugins 🤪
+- [Obsidian Enhancing Export](https://github.com/mokeyish/obsidian-enhancing-export)
+
+---
 
 ![.](./screenshots/code-emitter.gif)
 
