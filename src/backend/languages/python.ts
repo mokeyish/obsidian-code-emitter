@@ -7,7 +7,7 @@ if (typeof process !== 'undefined' && typeof process.browser === 'undefined') {
     process.browser = true;
 }
 
-const cdn = 'https://cdn.jsdelivr.net/gh/mokeyish/pyodide-dist@0.21.0a3/';
+const cdn = 'https://cdn.jsdelivr.net/gh/mokeyish/pyodide-dist@0.21.0/';
 
 export default (function() {
     let engine: PyodideInterface | undefined = undefined;
