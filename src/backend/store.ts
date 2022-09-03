@@ -8,16 +8,16 @@ export type CodeOutput = ReturnType<typeof createCodeOutput>;
 export function createCodeOutput<T = Message>() {
     const {subscribe, set, update} = writable<T[]>([]);
 
-    const prettyWrite = (name: string, id: string, data: T[]): void => {
-        const output = `[<span class="log-${name}">${id}</span>]:${data.join(',')}`;
+    const prettyWrite = (name: string, data: T[]): void => {
+        const output = `<div class="log-${name}">${data.join(',')}</div>`;
         update(n => [...n, output as unknown as T])
     }
 
-    const log = (...data: T[]) => prettyWrite('log', 'LOG', data);
-    const info = (...data: T[]) => prettyWrite('log', 'INFO', data);
-    const debug = (...data: T[]) => prettyWrite('debug', 'DBG', data);
-    const warn = (...data: T[]) => prettyWrite('warn', 'WRN', data);
-    const error = (...data: T[]) => prettyWrite('error', 'ERR', data);
+    const log = (...data: T[]) => prettyWrite('info', data);
+    const info = (...data: T[]) => prettyWrite('info', data);
+    const debug = (...data: T[]) => prettyWrite('debug', data);
+    const warn = (...data: T[]) => prettyWrite('warn', data);
+    const error = (...data: T[]) => prettyWrite('error', data);
 
     const write = (...data: T[]) => {
         const msg = data.join(',');

@@ -6,6 +6,10 @@ import * as fsp from 'fs/promises'
 import { relative, normalize } from 'path';
 import { rm } from 'fs/promises';
 import { exec } from 'child_process';
+import UnoCss from '@unocss/vite';
+import presetIcons from '@unocss/preset-icons';
+import presetMini from '@unocss/preset-mini';
+import transformerDirective from '@unocss/transformer-directives';
 
 
 
@@ -48,7 +52,18 @@ export default  defineConfig(async ({ mode }) => {
 
   return {
     plugins: [
-      svelte(), 
+      svelte(),
+      UnoCss({
+        presets: [
+          presetMini(),
+          presetIcons({
+            cdn: 'https://esm.sh/'
+          })
+        ],
+        transformers:[
+          transformerDirective()
+        ]
+      }),
       prod ? undefined : inject(["src/hmr.ts"])
     ],
     build: {
@@ -64,6 +79,7 @@ export default  defineConfig(async ({ mode }) => {
       // outDir: '',
       rollupOptions: {
         output: {
+          exports: 'named',
           assetFileNames: (v) => v.name === 'style.css'? 'styles.css': v.name
         },
         external: [

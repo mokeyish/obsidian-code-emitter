@@ -1,6 +1,7 @@
-import './app.scss';
+import 'uno.css';
+import './style.css';
 import type {MarkdownPostProcessorContext} from 'obsidian';
-import {Plugin, Platform, MarkdownRenderChild, PluginSettingTab, App} from 'obsidian';
+import {Plugin, MarkdownRenderChild, PluginSettingTab, App} from 'obsidian';
 import backend from "./backend";
 import RunWidget from './RunWidget.svelte';
 import SettingTab from './SettingTab.svelte'
@@ -12,7 +13,7 @@ const langPrefix = 'language-';
 
 
 
-export default class MyPlugin extends Plugin {
+export default class CodeEmitterPlugin extends Plugin {
     settings: typeof SETTING_DEFAULT
     async injectRunCode(el: HTMLElement, ctx: MarkdownPostProcessorContext) {
         const codeEl = el.querySelector('pre>code');
@@ -57,10 +58,10 @@ export default class MyPlugin extends Plugin {
 }
 
 export class SettingTabView extends PluginSettingTab {
-    readonly plugin: MyPlugin
+    readonly plugin: CodeEmitterPlugin
     view?: SettingTab
 
-    constructor(app: App, plugin: MyPlugin) {
+    constructor(app: App, plugin: CodeEmitterPlugin) {
         super(app, plugin)
         this.plugin = plugin
     }
@@ -85,13 +86,13 @@ export class SettingTabView extends PluginSettingTab {
 
 
 class CodeRunWidgetView extends MarkdownRenderChild {
-    readonly plugin: MyPlugin
+    readonly plugin: CodeEmitterPlugin
     widget?: RunWidget;
     lang: string;
     code: string;
     sourcePath: string;
 
-    constructor(plugin: MyPlugin, containerEl: HTMLElement, lang: string, code: string, sourcePath: string) {
+    constructor(plugin: CodeEmitterPlugin, containerEl: HTMLElement, lang: string, code: string, sourcePath: string) {
         super(containerEl);
         this.plugin = plugin
         this.lang = lang;

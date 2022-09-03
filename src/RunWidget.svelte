@@ -69,7 +69,7 @@
 
 <div class="code-emitter-block">
     {#if !running && !hasResult}
-        <i class="button-run-code fa-solid fa-play" on:click={runCode}></i>
+        <i class="button-run-code i-fa6-solid:play" on:click={runCode}></i>
     {/if}
 
     {#if running || hasResult}
@@ -80,7 +80,7 @@
                     <CodeRunning/>
                 </div>
             {:else}
-                <i class="button-refresh-code fa-solid fa-xmark" on:click={codeOutput.clear}></i>
+                <i class="button-refresh-code i-fa6-solid:xmark" on:click={codeOutput.clear}></i>
                 <ul>
                     {#each outputs as line}
                         <li>{@html line}</li>

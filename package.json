@@ -2,7 +2,7 @@
   "name": "code-emitter",
   "description": "An obsidian plugin that allows code blocks executed interactively in sandbox like jupyter notebooks. Supported language rust、kotlin、python、Javascript、TypeScript etc.",
   "private": true,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "scripts": {
     "dev": "vite build -w -m development",
@@ -12,8 +12,8 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
-    "pyodide": "^0.20.0",
-    "crypto-js": "^4.1.1"
+    "crypto-js": "^4.1.1",
+    "pyodide": "^0.20.0"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
@@ -22,9 +22,13 @@
     "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "5.29.0",
     "@typescript-eslint/parser": "5.29.0",
+    "@unocss/preset-icons": "^0.45.14",
+    "@unocss/preset-uno": "^0.45.14",
+    "@unocss/transformer-directives": "^0.45.14",
+    "@unocss/vite": "^0.45.14",
     "builtin-modules": "3.3.0",
     "obsidian": "latest",
-    "sass": "^1.54.0",
+    "sass": "^1.54.8",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
     "svelte-preprocess": "^4.10.7",

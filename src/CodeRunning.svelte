@@ -1,8 +1,8 @@
 <div class="lds-ellipsis">
-  <div />
-  <div />
-  <div />
-  <div />
+  <div class="dot" />
+  <div class="dot" />
+  <div class="dot" />
+  <div class="dot" />
 </div>
 
 <style>
@@ -16,7 +16,7 @@
     justify-content: center;
     margin: 0 auto;
   }
-  .lds-ellipsis div {
+  .lds-ellipsis .dot {
     position: absolute;
     width: 13px;
     height: 13px;
@@ -24,19 +24,19 @@
     background: #fff;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
-  .lds-ellipsis div:nth-child(1) {
+  .lds-ellipsis .dot:nth-child(1) {
     left: 8px;
     animation: lds-ellipsis1 0.6s infinite;
   }
-  .lds-ellipsis div:nth-child(2) {
+  .lds-ellipsis .dot:nth-child(2) {
     left: 8px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-  .lds-ellipsis div:nth-child(3) {
+  .lds-ellipsis .dot:nth-child(3) {
     left: 32px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-  .lds-ellipsis div:nth-child(4) {
+  .lds-ellipsis .dot:nth-child(4) {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
   }

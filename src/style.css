@@ -1,0 +1,15 @@
+
+.log-info {
+}
+
+.log-debug {
+
+}
+
+.log-warn {
+    @apply text-orange-400
+}
+
+.log-error {
+    @apply text-red-600
+}
