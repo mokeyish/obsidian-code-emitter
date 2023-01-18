@@ -22,7 +22,7 @@ export default  defineConfig(async ({ mode }) => {
 
   await rm('dist', { force: true, recursive: true })
   OUT_DIR = normalize(OUT_DIR)
-  if (OUT_DIR != path.join(process.cwd(), 'dist')) {
+  if (OUT_DIR != 'dist' && OUT_DIR != path.join(process.cwd(), 'dist')) {
     exec(process.platform === 'win32'? `mklink /J dist ${OUT_DIR}` : `ln -s ${OUT_DIR} dist`)
   }
 
