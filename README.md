@@ -3,7 +3,14 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/mokeyish/obsidian-code-emitter?display_name=tag&include_prereleases)
 ![GitHub all releases](https://img.shields.io/github/downloads/mokeyish/obsidian-code-emitter/total?style=flat-square)
 
-This plugin allows code blocks executed interactively like jupyter notebooks. 
+This plugin allows code blocks executed interactively like jupyter notebooks. It is based on HTTP REST APIs and JS sandbox and Webassembly technology, and has no local environment requirements, so it supports all platforms supported by Obsidian.
+
+Supports all Obsidian supported platforms, includes:
+- Windows
+- MacOS
+- Linux
+- Android
+- IOS
 
 Currently, support languages:
 
@@ -14,10 +21,10 @@ Currently, support languages:
 - Python
 - Java
 
-
 **Note**: Only `Python`、`TypeScript`、`JavaScript` are run locally in sandbox(js / webassembly). Other's will send
 code to third-party website to eval the results (eg: https://play.kotlinlang.org, https://play.rust-lang.org).
 Please take care to avoid sending your potentially-sensitive source code.
+
 
 **Ads**: You might like my other plugins 🤪
 
