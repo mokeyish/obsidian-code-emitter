@@ -1,5 +1,5 @@
 <script lang="ts">
-    import backend, {createCodeOutput} from "./backend";
+    import backend, {createCodeOutput} from "../backend";
     import CodeRunning from "./CodeRunning.svelte";
     import {onMount, onDestroy} from "svelte";
     import md5 from 'crypto-js/md5';

@@ -1,4 +1,5 @@
 import type {CodeOutput} from '..';
+import { ClientAgent } from '../../version';
 
 const url = 'https://api.kotlinlang.org//api/1.7.10/compiler/run';
 
@@ -24,14 +25,16 @@ export default async function(code: string, output: CodeOutput): Promise<void> {
         text: code
       }
     ]
-  }
+  };
   const res = await fetch(url, {
     method: 'POST',
     headers: {
+      'User-Agent': ClientAgent,
+      'Client-Agent': ClientAgent,
       'content-type': 'application/json; charset=utf-8'
     },
     body: JSON.stringify(body)
-  })
+  });
 
   const data: {
     errors: {

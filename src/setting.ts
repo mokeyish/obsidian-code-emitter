@@ -1,8 +1,7 @@
-
 export interface PluginSetting {
     autoRun: boolean
 }
 
 export default {
-    autoRun: false
-} as PluginSetting
+  autoRun: false
+} as PluginSetting;

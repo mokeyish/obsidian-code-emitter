@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SETTING_DEFAULT from './setting'
+    import SETTING_DEFAULT from '../setting'
     export let settings = SETTING_DEFAULT
 </script>
 

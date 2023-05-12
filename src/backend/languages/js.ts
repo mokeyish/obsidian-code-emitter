@@ -4,9 +4,9 @@ import { ProxySandbox } from '../../lib/sandbox';
 
 export default async function (code: string, output: CodeOutput): Promise<void> {
 
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const sandbox = new ProxySandbox('t');
-    await (async function (window: typeof sandbox.proxy) {
+    let run = (async function (window: typeof sandbox.proxy) {
       const { console } = window;
       Object.assign(console, output);
       sandbox.active();
@@ -18,7 +18,8 @@ export default async function (code: string, output: CodeOutput): Promise<void> 
       finally {
         sandbox.inactive();
       }
-    }).bind(sandbox.proxy)(sandbox.proxy);
-    resolve();
+    });
+    run = run.bind(sandbox.proxy);
+    (run(sandbox.proxy)).then(resolve).catch(reject);
   });
 }
