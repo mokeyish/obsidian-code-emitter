@@ -19,6 +19,7 @@ Currently, support languages:
 | ------------------ | ------------------------------------------------------------ |
 | Rust               | https://play.kotlinlang.org                                  |
 | Kotlin             | https://play.rust-lang.org                                   |
+| V                  | https://play.vosca.dev/                                      |
 | JavaScript         | JS Sandbox ([qiankun](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts)) |
 | TypeScript         | TypeScript Compiler + JS Sandbox                             |
 | Python             | WebAssembly ([Pyodide](https://github.com/pyodide/pyodide))  |
