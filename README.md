@@ -17,8 +17,8 @@ Currently, support languages:
 
 | Supported language | Way                                                          |
 | ------------------ | ------------------------------------------------------------ |
-| Rust               | https://play.kotlinlang.org                                  |
-| Kotlin             | https://play.rust-lang.org                                   |
+| Rust               | https://play.rust-lang.org                                   |
+| Kotlin             | https://play.kotlinlang.org                                  |
 | V                  | https://play.vosca.dev/                                      |
 | JavaScript         | JS Sandbox ([qiankun](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts)) |
 | TypeScript         | TypeScript Compiler + JS Sandbox                             |
