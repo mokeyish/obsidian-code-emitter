@@ -10,6 +10,7 @@ import python from './python';
 import csharp from './csharp';
 import swift from './swift';
 import v from './v';
+import wy from './wy';
 import type { Backend } from '..';
 
 
@@ -31,6 +32,8 @@ export default {
   swift,
   v,
   vlang: v,
+  wy,
+  wenyan: wy,
 } as {
   [lang: PropertyKey]: Backend
 };

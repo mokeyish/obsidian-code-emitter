@@ -21,7 +21,8 @@ Currently, support languages:
 | Kotlin             | https://play.kotlinlang.org                                  |
 | V                  | https://play.vosca.dev/                                      |
 | JavaScript         | JS Sandbox ([qiankun](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts)) |
-| TypeScript         | TypeScript Compiler + JS Sandbox                             |
+| TypeScript[]       | [TypeScript](https://www.typescriptlang.org/) Compiler + JS Sandbox |
+| Wenyan             | [Wenyan](https://github.com/wenyan-lang/wenyan)  Compiler + JS Sandbox |
 | Python             | WebAssembly ([Pyodide](https://github.com/pyodide/pyodide))  |
 | Java               | [Sololearn](https://www.sololearn.com)                       |
 | Go                 | [Sololearn](https://www.sololearn.com)                       |
