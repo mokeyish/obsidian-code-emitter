@@ -11,6 +11,7 @@ import csharp from './csharp';
 import swift from './swift';
 import v from './v';
 import wy from './wy';
+import crystal from './crystal';
 import type { Backend } from '..';
 
 
@@ -34,6 +35,8 @@ export default {
   vlang: v,
   wy,
   wenyan: wy,
+  crystal,
+  cr : crystal
 } as {
   [lang: PropertyKey]: Backend
 };
