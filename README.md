@@ -75,7 +75,7 @@ const runCode = async (code: string, lang: 'cpp' | 'go' | 'c' | 'java' | 'cs' | 
   const header = {
     'User-Agent': 'Obsidian Code Emitter/0.1.0 (If this is not allowed, please let me know)',
     'Accept': 'application/json, text/plain, */*',
-    'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+    'Accept-Language': 'en-US',
     'Content-Type': 'application/json',
   };
 		
