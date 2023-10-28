@@ -29,6 +29,7 @@ Currently, support languages:
 | c/c++              | [Sololearn](https://www.sololearn.com)                       |
 | CSharp             | [Sololearn](https://www.sololearn.com)                       |
 | Swift              | [Sololearn](https://www.sololearn.com)                       |
+| R                  | [Sololearn](https://www.sololearn.com)                       |          
 
 **Note**: Only `Python`、`TypeScript`、`JavaScript` are run locally in sandbox(js / webassembly). Other's will send
 code to third-party website to eval the results (eg: https://play.kotlinlang.org, https://play.rust-lang.org).
