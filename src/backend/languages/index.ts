@@ -12,6 +12,7 @@ import swift from './swift';
 import v from './v';
 import wy from './wy';
 import crystal from './crystal';
+import r from './r';
 import type { Backend } from '..';
 
 
@@ -36,7 +37,9 @@ export default {
   wy,
   wenyan: wy,
   crystal,
-  cr : crystal
+  cr : crystal,
+  r,
+  R: r,
 } as {
   [lang: PropertyKey]: Backend
 };

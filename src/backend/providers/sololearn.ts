@@ -4,7 +4,7 @@ import { ClientAgent } from '../../version';
 const url = 'https://api2.sololearn.com/v2/codeplayground/v2/compile';
 
 
-export const run = async (code: string, lang: 'cpp' | 'go' | 'c' | 'java' | 'cs' | 'swift') => {
+export const run = async (code: string, lang: 'cpp' | 'go' | 'c' | 'java' | 'cs' | 'swift' | 'r') => {
   const header = {
     'User-Agent': ClientAgent,
     'Client-Agent': ClientAgent,
