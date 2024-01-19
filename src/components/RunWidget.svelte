@@ -102,6 +102,7 @@
 
   .code-emitter-block {
     white-space: nowrap;
+    min-height: 1rem;
   }
 
   .button-run-code {
