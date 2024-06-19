@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   crypto-js:
     specifier: ^4.1.1
@@ -31,8 +35,8 @@ devDependencies:
     specifier: ^0.51.12
     version: 0.51.12
   '@unocss/preset-mini':
-    specifier: ^0.51.12
-    version: 0.51.12
+    specifier: ^0.61.0
+    version: 0.61.0
   '@unocss/preset-uno':
     specifier: ^0.51.12
     version: 0.51.12
@@ -345,6 +349,7 @@ packages:
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
     dependencies:
       '@humanwhocodes/object-schema': 1.2.1
       debug: 4.3.4
@@ -360,6 +365,7 @@ packages:
 
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    deprecated: Use @eslint/object-schema instead
     dev: true
 
   /@iconify/types@2.0.0:
@@ -695,10 +701,20 @@ packages:
     resolution: {integrity: sha512-H8mLy6ZKu9nGZe5jlHhLPIVwh2G3cCDSBGl5aIZJFI1qpmDC+Zb3iueBGigNpX75IzkjaGKZiK1WUWq8TShjtA==}
     dev: true
 
+  /@unocss/core@0.61.0:
+    resolution: {integrity: sha512-Y/Ly3LPIAzOBlWCdKBVzVzIaaWDsf+oWPIUZlaW7DL++WWypVBCghmxXIT5dyuMGXE560Hj92st4AkXfuVdxGQ==}
+    dev: true
+
   /@unocss/extractor-arbitrary-variants@0.51.12:
     resolution: {integrity: sha512-/HJH48LbnzTzPkq7yNf+F8tpq7F8b0ibuv0Y/PFQdRN+5OBpRoVwzK7pnJccpiOFbWqlfIQ/ao0MgVc+321tUw==}
     dependencies:
       '@unocss/core': 0.51.12
+    dev: true
+
+  /@unocss/extractor-arbitrary-variants@0.61.0:
+    resolution: {integrity: sha512-9ru/UR4kZ1+jGXpMawV9T8kpL54FrJBmWKMuFlDTEDIwtzDyyfLbt/buoXdzKDLmil9hOXH3IH8+dah/OiiDoA==}
+    dependencies:
+      '@unocss/core': 0.61.0
     dev: true
 
   /@unocss/inspector@0.51.12:
@@ -725,6 +741,14 @@ packages:
       '@unocss/extractor-arbitrary-variants': 0.51.12
     dev: true
 
+  /@unocss/preset-mini@0.61.0:
+    resolution: {integrity: sha512-P+DdMtPtzAQ2aQ1/WWPoO3X/qvky+Fqq4eKXIvbqXOQ9c2oem7/dnsPeT08zzLIqxVJnuykymPwRT85EumS0gg==}
+    dependencies:
+      '@unocss/core': 0.61.0
+      '@unocss/extractor-arbitrary-variants': 0.61.0
+      '@unocss/rule-utils': 0.61.0
+    dev: true
+
   /@unocss/preset-uno@0.51.12:
     resolution: {integrity: sha512-5cHjlPz7mUEzNRGhnVWGS4YLMhDBtk1ubQuy2uoYYPx6ecFsoeIYSSIx+loUzAsQ2E5R2JBDp5OFyYRMMkye4Q==}
     dependencies:
@@ -738,6 +762,14 @@ packages:
     dependencies:
       '@unocss/core': 0.51.12
       '@unocss/preset-mini': 0.51.12
+    dev: true
+
+  /@unocss/rule-utils@0.61.0:
+    resolution: {integrity: sha512-MCdmfhE6Q9HSWjWqi2sx5/nnKyOEhfhoo+pVumHIqkHQICQ/LuKioFf7Y7e5ycqjFE/7dC2hKGZJ8WTMGIOMwA==}
+    engines: {node: '>=14'}
+    dependencies:
+      '@unocss/core': 0.61.0
+      magic-string: 0.30.10
     dev: true
 
   /@unocss/scope@0.51.12:
@@ -1439,6 +1471,12 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
+  /magic-string@0.30.10:
+    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
+
   /mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
     dev: true
@@ -1700,6 +1738,7 @@ packages:
 
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
