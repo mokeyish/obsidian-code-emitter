@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   crypto-js:
     specifier: ^4.1.1
@@ -19,8 +23,8 @@ devDependencies:
     specifier: ^4.1.1
     version: 4.1.1
   '@types/node':
-    specifier: ^16.11.6
-    version: 16.11.6
+    specifier: ^20.14.8
+    version: 20.14.8
   '@typescript-eslint/eslint-plugin':
     specifier: 5.59.5
     version: 5.59.5(@typescript-eslint/parser@5.29.0)(eslint@8.40.0)(typescript@5.0.4)
@@ -68,7 +72,7 @@ devDependencies:
     version: 5.0.4
   vite:
     specifier: ^4.3.5
-    version: 4.3.5(@types/node@16.11.6)(sass@1.54.8)
+    version: 4.3.5(@types/node@20.14.8)(sass@1.54.8)
 
 packages:
 
@@ -345,6 +349,7 @@ packages:
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
     dependencies:
       '@humanwhocodes/object-schema': 1.2.1
       debug: 4.3.4
@@ -360,6 +365,7 @@ packages:
 
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    deprecated: Use @eslint/object-schema instead
     dev: true
 
   /@iconify/types@2.0.0:
@@ -465,7 +471,7 @@ packages:
       magic-string: 0.30.0
       svelte: 3.59.1
       svelte-hmr: 0.15.1(svelte@3.59.1)
-      vite: 4.3.5(@types/node@16.11.6)(sass@1.54.8)
+      vite: 4.3.5(@types/node@20.14.8)(sass@1.54.8)
       vitefu: 0.2.4(vite@4.3.5)
     transitivePeerDependencies:
       - supports-color
@@ -493,8 +499,10 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
-  /@types/node@16.11.6:
-    resolution: {integrity: sha512-ua7PgUoeQFjmWPcoo9khiPum3Pd60k4/2ZGXt18sm2Slk0W0xZTqt5Y0Ny1NyBiN1EVQ/+FaF9NcY4Qe6rwk5w==}
+  /@types/node@20.14.8:
+    resolution: {integrity: sha512-DO+2/jZinXfROG7j7WKFn/3C6nFwxy2lLpgLjEXJz+0XKphZlTLJ14mo8Vfg8X5BWN6XjyESXq+LcYdT7tR3bA==}
+    dependencies:
+      undici-types: 5.26.5
     dev: true
 
   /@types/pug@2.0.6:
@@ -766,7 +774,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.2.12
       magic-string: 0.30.0
-      vite: 4.3.5(@types/node@16.11.6)(sass@1.54.8)
+      vite: 4.3.5(@types/node@20.14.8)(sass@1.54.8)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -1700,6 +1708,7 @@ packages:
 
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
@@ -1990,13 +1999,17 @@ packages:
       jiti: 1.18.2
     dev: true
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.0
     dev: true
 
-  /vite@4.3.5(@types/node@16.11.6)(sass@1.54.8):
+  /vite@4.3.5(@types/node@20.14.8)(sass@1.54.8):
     resolution: {integrity: sha512-0gEnL9wiRFxgz40o/i/eTBwm+NEbpUeTWhzKrZDSdKm6nplj+z4lKz8ANDgildxHm47Vg8EUia0aicKbawUVVA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2021,7 +2034,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 16.11.6
+      '@types/node': 20.14.8
       esbuild: 0.17.18
       postcss: 8.4.23
       rollup: 3.21.6
@@ -2038,7 +2051,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.3.5(@types/node@16.11.6)(sass@1.54.8)
+      vite: 4.3.5(@types/node@20.14.8)(sass@1.54.8)
     dev: true
 
   /w3c-keyname@2.2.6:
