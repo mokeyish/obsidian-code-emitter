@@ -27,7 +27,7 @@
     "@unocss/preset-mini": "^0.51.12",
     "@unocss/transformer-directives": "^0.51.12",
     "@unocss/vite": "^0.51.12",
-    "builtin-modules": "3.3.0",
+    "builtin-modules": "4.0.0",
     "obsidian": "latest",
     "sass": "^1.54.8",
     "svelte": "^3.59.1",
