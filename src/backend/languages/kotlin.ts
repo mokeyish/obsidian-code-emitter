@@ -1,4 +1,4 @@
-import type {CodeOutput} from '..';
+import type { CodeOutput } from '..';
 import { ClientAgent } from '../../version';
 
 const url = 'https://api.kotlinlang.org//api/1.7.10/compiler/run';

@@ -1,29 +1,25 @@
-import { defineConfig, Plugin, loadEnv } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { defineConfig, UserConfig, Plugin, loadEnv } from 'vite';
+import solidPlugin from 'vite-plugin-solid';
 import path from 'path';
 import builtins from 'builtin-modules';
 import * as fsp from 'fs/promises';
-import { relative, normalize } from 'path';
+import { normalize } from 'path';
 import { rm } from 'fs/promises';
 import { exec } from 'child_process';
-import UnoCss from '@unocss/vite';
-import presetIcons from '@unocss/preset-icons';
-import presetMini from '@unocss/preset-mini';
-import transformerDirective from '@unocss/transformer-directives';
 
 
 
 
 // https://vitejs.dev/config/
-export default  defineConfig(async ({ mode }) => {
+export default  defineConfig(async ({ mode } ) => {
 
   const prod = mode === 'production';
   let { OUT_DIR } = loadEnv(mode, process.cwd(), ['OUT_']);
 
-  await rm('dist', { force: true, recursive: true });
   OUT_DIR = normalize(OUT_DIR);
   if (OUT_DIR != 'dist' && OUT_DIR != path.join(process.cwd(), 'dist')) {
-    exec(process.platform === 'win32'? `mklink /J dist ${OUT_DIR}` : `ln -s ${OUT_DIR} dist`);
+    await rm('dist', { recursive: true, force: true });
+    exec(process.platform === 'win32' ? `mklink /J dist ${OUT_DIR}` : `ln -s ${OUT_DIR} dist`);
   }
 
   const inject = (files: string[]): Plugin => {
@@ -52,28 +48,16 @@ export default  defineConfig(async ({ mode }) => {
 
   return {
     plugins: [
-      svelte({
-        onwarn: (warning, handler) => {
-          if (warning.code.startsWith('a11y')) return;
-          handler(warning);
-        },
-      }),
-      UnoCss({
-        presets: [
-          presetMini(),
-          presetIcons({
-            cdn: 'https://esm.sh/'
-          })
-        ],
-        transformers:[
-          transformerDirective()
-        ]
+      solidPlugin({
+        // babel: {
+        //   plugins: ['solid-styled-jsx/babel']
+        // }
       }),
       prod ? undefined : inject(['src/hmr.ts'])
     ],
     build: {
       lib: {
-        entry: 'src/main.ts',
+        entry: 'src/main.tsx',
         name: 'main',
         fileName: (_) => 'main.js',
         formats: ['cjs'],
@@ -117,5 +101,5 @@ export default  defineConfig(async ({ mode }) => {
           ...builtins],
       }
     }
-  };
+  } satisfies UserConfig;
 });

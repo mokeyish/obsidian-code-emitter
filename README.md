@@ -20,6 +20,7 @@ Currently, support languages:
 | Rust               | https://play.rust-lang.org                                   |
 | Kotlin             | https://play.kotlinlang.org                                  |
 | V                  | https://play.vosca.dev/                                      |
+| HTML&CSS           | [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) |       
 | JavaScript         | JS Sandbox ([qiankun](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts)) |
 | TypeScript[]       | [TypeScript](https://www.typescriptlang.org/) Compiler + JS Sandbox |
 | Wenyan             | [Wenyan](https://github.com/wenyan-lang/wenyan)  Compiler + JS Sandbox |
@@ -62,6 +63,21 @@ a = np.random.rand(3,2)
 b = np.random.rand(2,5)
 
 print(a@b)
+```
+
+### HTML&CSS
+
+```html
+<div><span class="h">Hello</span><span class="w">world</span></div>
+
+<style>
+.h {
+  color: red;
+}
+.w {
+  color: green;
+}
+</style>
 ```
 
 ### Any languages that support CORS

@@ -13,6 +13,7 @@ import v from './v';
 import wy from './wy';
 import crystal from './crystal';
 import r from './r';
+import html from './html';
 import type { Backend } from '..';
 
 
@@ -22,11 +23,12 @@ export default {
   java,
   c,
   cpp,
-  'c++': cpp,
+  // 'c++': cpp,
+  // 'c#': csharp,
   csharp,
-  'c#': csharp,
   js,
   javascript: js,
+  html,
   ts,
   typescript: ts,
   python,

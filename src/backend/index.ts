@@ -1,5 +1,5 @@
 import languages from './languages';
-import type {CodeOutput} from './store';
+import type { CodeOutput } from './store';
 
 export { createCodeOutput } from './store';
 export type { CodeOutput } from './store';

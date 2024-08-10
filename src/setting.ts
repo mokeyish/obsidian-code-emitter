@@ -1,5 +1,5 @@
 export interface PluginSetting {
-    autoRun: boolean
+    autoRun: boolean,
 }
 
 export default {

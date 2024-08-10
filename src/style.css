@@ -1,15 +1,16 @@
 
 .log-info {
+    color: var(--text-normal)
 }
 
 .log-debug {
-
+    color: var(--text-accent)
 }
 
 .log-warn {
-    @apply text-orange-400
+    color: var(--text-warning)
 }
 
 .log-error {
-    @apply text-red-600
+    color: var(--text-error)
 }

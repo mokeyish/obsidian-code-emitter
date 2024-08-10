@@ -1,5 +1,5 @@
 import urlImport from '../../lib/url_import';
-import type {Backend, CodeOutput} from '..';
+import type { Backend, CodeOutput } from '..';
 import type * as typescript from 'typescript';
 
 import js from './js';

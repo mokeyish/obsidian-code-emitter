@@ -21,7 +21,10 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
+    - uses: pnpm/action-setup@v4
+      with:
+        version: latest
     - name: Create local changes
       run: |
         npm run version ${{ github.event.inputs.version }}
@@ -48,11 +51,14 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
       - name: Build
         id: build
         run: |
-          npm install
+          pnpm install
           npm run build
           mkdir ${{ env.PLUGIN_NAME }}
           cp dist/* ${{ env.PLUGIN_NAME }}

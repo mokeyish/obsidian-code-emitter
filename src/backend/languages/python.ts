@@ -1,5 +1,5 @@
 import urlImport from '../../lib/url_import';
-import type {Backend, CodeOutput} from '../';
+import type { Backend, CodeOutput } from '../';
 import type { loadPyodide } from 'pyodide/pyodide';
 import type { PyodideInterface } from 'pyodide/api';
 

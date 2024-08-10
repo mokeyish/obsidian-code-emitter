@@ -1,12 +1,22 @@
-import {writable} from 'svelte/store';
-
 export type Message = string;
 
 export type CodeOutput = ReturnType<typeof createCodeOutput>;
 
 
 export function createCodeOutput<T = Message>() {
-  const {subscribe, set, update} = writable<T[]>([]);
+  let outputs: T[] = [];
+  let subscribers: ((m: T[]) =>  void)[] = [];
+  
+  const update = (setter: (prev: T[]) => T[]) => {
+    outputs = setter(outputs);
+    for (const s of subscribers) {
+      s(outputs);
+    }
+  };
+
+  const set = (value: T[]) => {
+    update(() => value);
+  };
 
   const prettyWrite = (name: string, data: T[]): void => {
     const output = `<div class="log-${name}">${data.join(',')}</div>`;
@@ -28,11 +38,19 @@ export function createCodeOutput<T = Message>() {
     set([]);
   };
 
+  const subscribe = (subscriber: (outputs: T[]) =>  void) => {
+    subscribers.push(subscriber);
+    return () => {
+      subscribers = subscribers.filter(s => s !== subscriber);
+    };
+  };
+
+
   return {
     subscribe,
     log, info, debug, warn, error,
     write,
     clear,
-    set
+    set,
   };
 }
