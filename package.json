@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite build -w -m development",
     "build": "vite build",
-    "version": "node version-bump.mjs",
+    "version-bump": "node version.mjs bump",
+    "version": "node version.mjs",
     "preview": "vite preview",
     "lint": "eslint",
     "lint-fix": "eslint --fix"
@@ -21,10 +22,12 @@
     "@eslint/js": "^9.7.0",
     "@types/crypto-js": "^4.1.1",
     "@types/node": "^22.0.0",
+    "@types/semver": "^7.5.8",
     "builtin-modules": "3.3.0",
     "eslint": "^9.7.0",
     "obsidian": "latest",
     "sass": "^1.54.8",
+    "semver": "^7.6.3",
     "solid-js": "^1.8.19",
     "tslib": "^2.5.0",
     "typescript": "5.5.4",

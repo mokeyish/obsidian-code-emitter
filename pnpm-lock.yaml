@@ -27,6 +27,9 @@ importers:
       '@types/node':
         specifier: ^22.0.0
         version: 22.0.0
+      '@types/semver':
+        specifier: ^7.5.8
+        version: 7.5.8
       builtin-modules:
         specifier: 3.3.0
         version: 3.3.0
@@ -39,6 +42,9 @@ importers:
       sass:
         specifier: ^1.54.8
         version: 1.54.8
+      semver:
+        specifier: ^7.6.3
+        version: 7.6.3
       solid-js:
         specifier: ^1.8.19
         version: 1.8.19
@@ -477,6 +483,9 @@ packages:
 
   '@types/node@22.0.0':
     resolution: {integrity: sha512-VT7KSYudcPOzP5Q0wfbowyNLaVR8QWUdw+088uFWwfvpY6uCWaXpqV6ieLAu9WBcnTa7H4Z5RLK8I5t2FuOcqw==}
+
+  '@types/semver@7.5.8':
+    resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
 
   '@types/tern@0.23.4':
     resolution: {integrity: sha512-JAUw1iXGO1qaWwEOzxTKJZ/5JxVeON9kvGZ/osgZaJImBnyjyn0cjovPsf6FNLmyGY8Vw9DoXZCMlfMkMwHRWg==}
@@ -1620,6 +1629,8 @@ snapshots:
   '@types/node@22.0.0':
     dependencies:
       undici-types: 6.11.1
+
+  '@types/semver@7.5.8': {}
 
   '@types/tern@0.23.4':
     dependencies:
