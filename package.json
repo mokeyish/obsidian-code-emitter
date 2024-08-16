@@ -15,7 +15,7 @@
   "dependencies": {
     "ansicolor": "^2.0.3",
     "crypto-js": "^4.1.1",
-    "pyodide": "^0.20.0"
+    "pyodide": "^0.26.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.7.0",
