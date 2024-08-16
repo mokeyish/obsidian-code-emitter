@@ -1,8 +1,9 @@
 import './Play.scss';
-import { createSignal, For, type JSX, onCleanup, onMount, Show } from 'solid-js';
+import { createSignal, type JSX, onCleanup, onMount, Show } from 'solid-js';
 import backend, { createCodeOutput } from '../backend';
 import Spin from './Spin';
 import md5 from 'crypto-js/md5';
+import Term from './Term';
 
 interface CacheEntry {
   [code: string]: {
@@ -84,11 +85,7 @@ export default (props: {
           <Show when={running()} fallback={<>
             
             <Show when={props.lang === 'html' } fallback={<>
-              <ul>
-                <For each={outputs()}>
-                  {(line) => <li innerHTML={line}></li>}
-                </For>
-              </ul>
+              <Term lines={outputs()}/>
             </>}>
               <HtmlViewer code={props.code}/>
             </Show>
