@@ -1,8 +1,8 @@
-import type { CodeOutput } from '..';
+import type { Stdio } from '..';
 
 const url = 'https://go.dev/_/compile?backend=';
 
-export default async function(code: string, _output: CodeOutput): Promise<void> {
+export default async function(code: string, _stdio: Stdio): Promise<void> {
   const data = new URLSearchParams({
     version: '2',
     body: code,

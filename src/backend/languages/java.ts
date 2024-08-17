@@ -1,7 +1,11 @@
-import type { CodeOutput } from '..';
+import type { Stdio } from '..';
 import { run } from '../providers/sololearn';
 
-export default async function (code: string, output: CodeOutput): Promise<void> {
+export default async function (code: string, stdio: Stdio): Promise<void> {
   const res = await run(code, 'java');
-  output.write(res.success ? res.data.output : (res.errors ?? []).join('\n'));
+  if (res.success) {
+    stdio.stdout(res.data.output);
+  } else {
+    stdio.stderr((res.errors ?? []).join('\n'))
+  }
 }

@@ -3,5 +3,8 @@ export interface PluginSetting {
 }
 
 export default {
-  autoRun: false
+  autoRun: false,
+  python: {
+    cdn: 'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/'
+  }
 } as PluginSetting;

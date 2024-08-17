@@ -1,8 +1,8 @@
-import type { CodeOutput } from '..';
+import type { CodeOutput as StdIO } from '..';
 
 const url = 'https://play.vosca.dev/run';
 
-export default async function (code: string, output: CodeOutput): Promise<void> {
+export default async function (code: string, output: StdIO): Promise<void> {
   const data = new FormData();
   data.append('code', code);
   const res = await fetch(url, {
@@ -17,8 +17,8 @@ export default async function (code: string, output: CodeOutput): Promise<void> 
   };
 
   if (json.error?.length > 0) {
-    output.error(json.error);
+    output.stderr(json.error);
   } else {
-    output.write(json.output);
+    output.stdout(json.output);
   }
 }

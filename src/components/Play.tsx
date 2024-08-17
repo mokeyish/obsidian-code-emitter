@@ -1,9 +1,10 @@
 import './Play.scss';
-import { createSignal, type JSX, onCleanup, onMount, Show } from 'solid-js';
-import backend, { createCodeOutput } from '../backend';
+import { createSignal, onCleanup, onMount, Show } from 'solid-js';
+import backend, { createStdio } from '../backend';
 import Spin from './Spin';
 import md5 from 'crypto-js/md5';
 import Term from './Term';
+import Icon from './Icon';
 
 interface CacheEntry {
   [code: string]: {
@@ -21,18 +22,19 @@ export default (props: {
 
   const cacheKey = () => `code-emitter-cache-${props.sourcePath}`;
   const codeSum = () => md5(props.code).toString();
-  const codeOutput = createCodeOutput();
+  const stdio = createStdio();
   const [outputs, setOuptuts] = createSignal<string[]>();
-  codeOutput.subscribe(setOuptuts);
+  stdio.subscribe(setOuptuts);
 
-  const hasResult = () => outputs()?.length > 0;
+  const hasResult = () => outputs()?.length > 0 || stdio.viewEl.hasChildNodes();
 
   const [running, setRunning] = createSignal(false);
 
   const run = async () => {
     setRunning(true);
     try {
-      await backend[props.lang](props.code, codeOutput);
+      const engine = backend[props.lang];
+      await engine(props.code, stdio);
     } finally {
       setRunning(false);
     }
@@ -64,7 +66,7 @@ export default (props: {
   onMount(async () => {
     const r = readFromCache();
     if (r) {
-      codeOutput.set(r);
+      stdio.set(r);
     } else if (props.autoRun) {
       await run();
     }
@@ -75,22 +77,16 @@ export default (props: {
   return <>
     <div class="code-emitter-block solid">
       <Show when={ !running() && !hasResult()}>
-        {/* <i class=" i-fa6-solid:play" ></i> */}
-        <PlayButton class="button-play" onClick={run}/>
+        <i aria-label="play" class="button-play" onClick={run}><Icon name="play"/></i>
       </Show>
 
       <Show when={running() || hasResult() }>
         <hr class="code-seprator"/>
         <div class="code-output">
           <Show when={running()} fallback={<>
-            
-            <Show when={props.lang === 'html' } fallback={<>
-              <Term lines={outputs()}/>
-            </>}>
-              <HtmlViewer code={props.code}/>
-            </Show>
-
-            <ClearButton class="button-clear" onClick={codeOutput.clear}/>
+            <div>{stdio.viewEl}</div>
+            <Term lines={outputs()}/>
+            <i aria-label="clear" class="button-clear" onClick={stdio.clear}><Icon name="clear"/></i>
           </>}>
 
             <div class="loadding">
@@ -100,53 +96,6 @@ export default (props: {
         </div>
 
       </Show>
-    </div>
-  </>;
-};
-
-const ClearButton = (props:  JSX.HTMLAttributes<HTMLElement>) => {
-  return <>
-    <i aria-label="clear" {...props}>
-      <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="0.75em" height="1em" viewBox="0 0 384 512">
-        <path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7L86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256L41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256z"/>
-      </svg>
-    </i>
-  </>;
-};
-
-
-const PlayButton = (props:  JSX.HTMLAttributes<HTMLElement>) => {
-  return <>
-    <i aria-label="play" {...props}>
-      <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="0.75em" height="1em" viewBox="0 0 384 512">
-        <path fill="currentColor" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80v352c0 17.4 9.4 33.4 24.5 41.9S58.2 482 73 473l288-176c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41z"/>
-      </svg>
-    </i>
-  </>;
-};
-
-
-const HtmlViewer = (props: { code: string }) => {
-  // eslint-disable-next-line prefer-const
-  let host: HTMLDivElement | undefined = undefined;
-  // eslint-disable-next-line prefer-const
-  let el: HTMLDivElement | undefined = undefined;
-
-  let shadow: ShadowRoot | undefined = undefined;
-
-  onMount(() => {
-    if (!host) return;
-    shadow = host.attachShadow({ mode: 'closed' });
-    shadow.appendChild(el);
-  });
-
-  onCleanup(() => {
-    host?.detach();
-  });
-
-  return <>
-    <div ref={host} class="html-viewer" >
-      <div ref={el} innerHTML={props.code}></div>
     </div>
   </>;
 };

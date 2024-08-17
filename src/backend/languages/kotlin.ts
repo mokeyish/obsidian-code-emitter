@@ -1,4 +1,4 @@
-import type { CodeOutput } from '..';
+import type { Stdio } from '..';
 import { ClientAgent } from '../../version';
 
 const url = 'https://api.kotlinlang.org//api/1.7.10/compiler/run';
@@ -14,7 +14,7 @@ interface KotlinArgs {
 }
 
 
-export default async function(code: string, output: CodeOutput): Promise<void> {
+export default async function(code: string, stdio: Stdio): Promise<void> {
   const body: KotlinArgs = {
     args: '',
     confType: 'java',
@@ -48,9 +48,9 @@ export default async function(code: string, output: CodeOutput): Promise<void> {
   if (data.errors && Object.keys(data.errors).length > 0) {
     for (const errors of Object.values(data.errors)) {
       for (const error of errors) {
-        output.error(error.message);
+        stdio.stderr(error.message);
       }
     }
   }
-  output.write(data.text);
+  stdio.stdout(data.text);
 }

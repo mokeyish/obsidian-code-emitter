@@ -1,17 +1,33 @@
 import urlImport from '../../lib/url_import';
-import type { Backend, CodeOutput } from '../';
+import type { Backend, Stdio } from '../';
 import type { loadPyodide } from 'pyodide/pyodide';
-import type { PyodideInterface } from 'pyodide/api';
+import type { PyodideInterface } from 'pyodide';
 
 if (typeof process !== 'undefined' && typeof process.browser === 'undefined') {
   process.browser = true;
 }
 
-const cdn = 'https://cdn.jsdelivr.net/gh/mokeyish/pyodide-dist@0.21.2/';
+const default_cdn = 'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/';
 
-export default (function() {
+const setMplTarget = (target?: HTMLElement) => {
+  if (target) {
+    document['pyodideMplTarget'] = target;
+  } else {
+    delete document['pyodideMplTarget'];
+  }
+}
+
+let cache: { cdn: string, backend: Backend } | null = null;
+
+export default (function(props?: { cdn: string }) {
+  const cdn = props?.cdn ?? default_cdn;
+
+  if (cache?.cdn === cdn) {
+    return cache.backend;
+  }
+
   let engine: PyodideInterface | null = null;
-  let stdio: CodeOutput | null = null;
+  let stdio: Stdio | null = null;
   let load: (() => Promise<void>) | null = null;
   const backend: Backend = async (code, output) => {
     if (!engine) {
@@ -19,9 +35,12 @@ export default (function() {
     }
     stdio = output;
     try {
+      setMplTarget(output.viewEl);
       await engine.runPythonAsync(code);
     } catch (e) {
-      output.error(e);
+      output.stderr(e);
+    } finally {
+      setMplTarget(undefined);
     }
   };
   backend.loading = true;
@@ -32,12 +51,18 @@ export default (function() {
     );
     engine = await loader({
       indexURL: cdn,
-      stdout: (s) => stdio?.write(s),
-      stderr:(s) => stdio?.error(s)
+      stdout: (s) => stdio?.stdout(s),
+      stderr:(s) => stdio?.stderr(s)
     });
     await engine.loadPackage('micropip');
     console.log('python loaded.');
     backend.loading = false;
   };
+
+  cache = {
+    cdn,
+    backend
+  };
+  
   return backend;
 })();

@@ -1,5 +1,5 @@
 import urlImport from '../../lib/url_import';
-import type { Backend, CodeOutput } from '..';
+import type { Backend, Stdio } from '..';
 import js from './js';
 
 const cdn = 'https://unpkg.com/@wenyan/core/index.min.js';
@@ -9,14 +9,14 @@ export default (function () {
     compile: (code: string) => string
   } | null = null;
   let load: (() => Promise<void>) | null = null;
-  const backend: Backend = async function(code: string, output: CodeOutput): Promise<void> {
+  const backend: Backend = async function(code: string, stdio: Stdio): Promise<void> {
     if (!wenyan) {
       await load();
     }
     const jsCode = wenyan.compile(code);
     console.log('wenyan:');
     console.log(jsCode);
-    await js(`(async () => { ${jsCode} })();`, output);
+    await js(`(async () => { ${jsCode} })();`, stdio);
   };
   backend.loading = true;
 
