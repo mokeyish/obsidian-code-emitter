@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "ansicolor": "^2.0.3",
-    "crypto-js": "^4.1.1",
-    "pyodide": "^0.20.0"
+    "crypto-js": "^4.2.0",
+    "pyodide": "^0.26.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.7.0",
-    "@types/crypto-js": "^4.1.1",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^22.0.0",
     "@types/semver": "^7.5.8",
     "builtin-modules": "3.3.0",
@@ -28,7 +28,7 @@
     "obsidian": "latest",
     "sass": "^1.54.8",
     "semver": "^7.6.3",
-    "solid-js": "^1.8.19",
+    "solid-js": "^1.8.21",
     "tslib": "^2.5.0",
     "typescript": "5.5.4",
     "typescript-eslint": "^8.0.1",

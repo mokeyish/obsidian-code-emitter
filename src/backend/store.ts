@@ -1,9 +1,7 @@
 export type Message = string;
+export type Stdio = ReturnType<typeof createStdio>;
 
-export type CodeOutput = ReturnType<typeof createCodeOutput>;
-
-
-export function createCodeOutput<T = Message>() {
+export function createStdio<T = Message>() {
   let outputs: T[] = [];
   let subscribers: ((m: T[]) =>  void)[] = [];
   
@@ -23,8 +21,15 @@ export function createCodeOutput<T = Message>() {
     update(n => [...n, msg as unknown as T]);
   };
 
+  const stderr = (...data: T[]) => {
+    const msg = data.join(',');
+    update(n => [...n, msg as unknown as T]);
+  };
+
+  const viewEl = document.createElement('div');
   const clear = () => {
     set([]);
+    viewEl.empty();
   };
 
   const subscribe = (subscriber: (outputs: T[]) =>  void) => {
@@ -38,6 +43,9 @@ export function createCodeOutput<T = Message>() {
   return {
     subscribe,
     write,
+    viewEl,
+    stdout: write,
+    stderr,
     clear,
     update,
     set,

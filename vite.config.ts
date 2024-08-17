@@ -98,7 +98,8 @@ export default  defineConfig(async ({ mode } ) => {
           '@lezer/common',
           '@lezer/highlight',
           '@lezer/lr',
-          ...builtins],
+          ...builtins
+        ],
       }
     }
   } satisfies UserConfig;

@@ -1,8 +1,8 @@
-import type { CodeOutput } from '..';
+import type { Stdio } from '..';
 
 const url = 'https://play.crystal-lang.org/run_requests';
 
-export default  async function(code: string, output: CodeOutput): Promise<void> {
+export default  async function(code: string, stdio: Stdio): Promise<void> {
   const data = {
     run_request: {
       language: 'crystal', 
@@ -24,5 +24,9 @@ export default  async function(code: string, output: CodeOutput): Promise<void> 
   const json = await res.json();
   const codeResponse = json.run_request.run;
   // the response doesnt have success 
-  output.write(!codeResponse.stderr ? codeResponse.stdout : codeResponse.stderr);
+  if (codeResponse.stderr) {
+    stdio.stderr(codeResponse.stderr)
+  } else {
+    stdio.stdout(codeResponse.stdout);
+  }
 }

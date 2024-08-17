@@ -43,5 +43,5 @@ export default {
   r,
   R: r,
 } as {
-  [lang: PropertyKey]: Backend
+  [lang: PropertyKey]: ((props?: unknown) => Backend) | Backend
 };

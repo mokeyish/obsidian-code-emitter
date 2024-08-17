@@ -1,5 +1,5 @@
 import urlImport from '../../lib/url_import';
-import type { Backend, CodeOutput } from '..';
+import type { Backend, Stdio } from '..';
 import type * as typescript from 'typescript';
 
 import js from './js';
@@ -9,7 +9,7 @@ const cdn = 'https://cdn.jsdelivr.net/npm/typescript@4.7.4/lib/typescript.min.js
 export default (function () {
   let tsc: typeof typescript | null = null;
   let load: (() => Promise<void>) | null = null;
-  const backend: Backend = async function(code: string, output: CodeOutput): Promise<void> {
+  const backend: Backend = async function(code: string, stdio: Stdio): Promise<void> {
     if (!tsc) {
       await load();
     }
@@ -17,7 +17,7 @@ export default (function () {
       module: tsc.ModuleKind.ESNext,
       target: tsc.ScriptTarget.ES2018
     });
-    await js(jsCode, output);
+    await js(jsCode, stdio);
   };
   backend.loading = true;
 

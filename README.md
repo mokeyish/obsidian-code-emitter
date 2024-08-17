@@ -55,6 +55,8 @@ Please take care to avoid sending your potentially-sensitive source code.
 
 Install numpy through `micropip`. All available packages are list in [here](https://github.com/mokeyish/pyodide-dist/find/master) (search `whl`).
 
+#### using numpy
+
 ```python
 import micropip
 await micropip.install('numpy')  
@@ -63,6 +65,19 @@ a = np.random.rand(3,2)
 b = np.random.rand(2,5)
 
 print(a@b)
+```
+
+#### using matplotlib
+
+```python
+import micropip
+await micropip.install('matplotlib')
+
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()             # Create a figure containing a single Axes.
+ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
+plt.show()                           # Show the figure.
 ```
 
 ### HTML&CSS
@@ -94,7 +109,7 @@ const runCode = async (code: string, lang: 'cpp' | 'go' | 'c' | 'java' | 'cs' | 
     'Accept-Language': 'en-US',
     'Content-Type': 'application/json',
   };
-		
+
   const res = await fetch(url, {
     'headers': header,
     'body': JSON.stringify({

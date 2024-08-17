@@ -1,8 +1,8 @@
-import type { CodeOutput } from '..';
+import type { Stdio } from '..';
 
 const url = 'https://play.rust-lang.org/execute';
 
-export default  async function(code: string, output: CodeOutput): Promise<void> {
+export default async function(code: string, stdio: Stdio): Promise<void> {
   const data = {
     'channel': 'stable',
     'mode': 'debug',
@@ -23,6 +23,10 @@ export default  async function(code: string, output: CodeOutput): Promise<void> 
       body: JSON.stringify(data)
     }
   );
-  const json = await res.json();
-  output.write(json.success ? json.stdout : json.stderr);
+  const out = await res.json();
+  if (out.success) {
+    stdio.stdout(out.stdout)
+  } else {
+    stdio.stderr(out.stderr);
+  }
 }
