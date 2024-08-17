@@ -1,5 +1,6 @@
 import { defineConfig, UserConfig, Plugin, loadEnv } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import path from 'path';
 import builtins from 'builtin-modules';
 import * as fsp from 'fs/promises';
@@ -52,6 +53,12 @@ export default  defineConfig(async ({ mode } ) => {
         // babel: {
         //   plugins: ['solid-styled-jsx/babel']
         // }
+      }),
+      viteStaticCopy({
+        targets: [{
+          src: 'manifest.json',
+          dest: '.'
+        }]
       }),
       prod ? undefined : inject(['src/hmr.ts'])
     ],
