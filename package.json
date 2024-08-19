@@ -21,7 +21,7 @@
   "devDependencies": {
     "@eslint/js": "^9.7.0",
     "@types/crypto-js": "^4.2.2",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.4.1",
     "@types/semver": "^7.5.8",
     "builtin-modules": "3.3.0",
     "eslint": "^9.7.0",
