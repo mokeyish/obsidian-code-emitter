@@ -49,8 +49,8 @@ importers:
         specifier: ^1.8.21
         version: 1.8.21
       tslib:
-        specifier: ^2.5.0
-        version: 2.5.0
+        specifier: ^2.7.0
+        version: 2.7.0
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -1140,8 +1140,8 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
-  tslib@2.5.0:
-    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
+  tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -2308,7 +2308,7 @@ snapshots:
     dependencies:
       typescript: 5.5.4
 
-  tslib@2.5.0: {}
+  tslib@2.7.0: {}
 
   type-check@0.4.0:
     dependencies:

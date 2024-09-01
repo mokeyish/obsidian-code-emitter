@@ -29,7 +29,7 @@
     "sass": "^1.54.8",
     "semver": "^7.6.3",
     "solid-js": "^1.8.21",
-    "tslib": "^2.5.0",
+    "tslib": "^2.7.0",
     "typescript": "5.5.4",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.0",
