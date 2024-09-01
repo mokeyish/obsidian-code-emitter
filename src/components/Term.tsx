@@ -2,7 +2,7 @@
 import { For, Show } from 'solid-js';
 import { parse } from 'ansicolor';
 
-const htmlRegex = /^\s*<([a-zA-Z_][a-zA-Z0-9-_]*)>.*<\/\1>\s*$/g
+const htmlRegex = /^\s*<([a-zA-Z_][a-zA-Z0-9-_]*)(\s+[^>]+)*>.*<\/\1>\s*$/g
 export default (props: { lines: string[] }) => {
   return <>
     <ul>
