@@ -24,7 +24,7 @@
     "@types/node": "^22.0.0",
     "@types/semver": "^7.5.8",
     "builtin-modules": "3.3.0",
-    "eslint": "^9.7.0",
+    "eslint": "^9.10.0",
     "obsidian": "latest",
     "sass": "^1.54.8",
     "semver": "^7.6.3",
