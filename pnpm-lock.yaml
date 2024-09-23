@@ -38,7 +38,7 @@ importers:
         version: 9.9.0
       obsidian:
         specifier: latest
-        version: 1.6.6(@codemirror/state@6.2.0)(@codemirror/view@6.11.1)
+        version: 1.7.2(@codemirror/state@6.2.0)(@codemirror/view@6.11.1)
       sass:
         specifier: ^1.54.8
         version: 1.54.8
@@ -477,9 +477,6 @@ packages:
 
   '@types/crypto-js@4.2.2':
     resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
-
-  '@types/estree@1.0.1':
-    resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
 
   '@types/estree@1.0.5':
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -972,8 +969,8 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  obsidian@1.6.6:
-    resolution: {integrity: sha512-GZHzeOiwmw/wBjB5JwrsxAZBLqxGQmqtEKSvJJvT0LtTcqeOFnV8jv0ZK5kO7hBb44WxJc+LdS7mZgLXbb+qXQ==}
+  obsidian@1.7.2:
+    resolution: {integrity: sha512-k9hN9brdknJC+afKr5FQzDRuEFGDKbDjfCazJwpgibwCAoZNYHYV8p/s3mM8I6AsnKrPKNXf8xGuMZ4enWelZQ==}
     peerDependencies:
       '@codemirror/state': ^6.0.0
       '@codemirror/view': ^6.0.0
@@ -1629,8 +1626,6 @@ snapshots:
 
   '@types/crypto-js@4.2.2': {}
 
-  '@types/estree@1.0.1': {}
-
   '@types/estree@1.0.5': {}
 
   '@types/node@22.0.0':
@@ -1641,7 +1636,7 @@ snapshots:
 
   '@types/tern@0.23.4':
     dependencies:
-      '@types/estree': 1.0.1
+      '@types/estree': 1.0.5
 
   '@typescript-eslint/eslint-plugin@8.0.1(@typescript-eslint/parser@8.0.1(eslint@9.9.0)(typescript@5.5.4))(eslint@9.9.0)(typescript@5.5.4)':
     dependencies:
@@ -2146,7 +2141,7 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  obsidian@1.6.6(@codemirror/state@6.2.0)(@codemirror/view@6.11.1):
+  obsidian@1.7.2(@codemirror/state@6.2.0)(@codemirror/view@6.11.1):
     dependencies:
       '@codemirror/state': 6.2.0
       '@codemirror/view': 6.11.1
