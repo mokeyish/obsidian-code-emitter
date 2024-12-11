@@ -40,7 +40,6 @@ Supported languages:
 > Others will send code to third-party website to evaluate the results (e.g.: https://play.kotlinlang.org, https://play.rust-lang.org).
 > Please take care to avoid sending your potentially-sensitive source code.
 
-
 **Ads**: You might like my other plugins 🤪
 
 - [Obsidian Enhancing Export](https://github.com/mokeyish/obsidian-enhancing-export)
