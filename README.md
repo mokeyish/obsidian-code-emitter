@@ -15,22 +15,23 @@ Supports all Obsidian supported platforms, includes:
 
 Currently, support languages:
 
-| Supported language | Way                                                          |
-| ------------------ | ------------------------------------------------------------ |
-| Rust               | https://play.rust-lang.org                                   |
-| Kotlin             | https://play.kotlinlang.org                                  |
-| V                  | https://play.vosca.dev/                                      |
-| HTML&CSS           | [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) |       
-| JavaScript         | JS Sandbox ([qiankun](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts)) |
-| TypeScript[]       | [TypeScript](https://www.typescriptlang.org/) Compiler + JS Sandbox |
-| Wenyan             | [Wenyan](https://github.com/wenyan-lang/wenyan)  Compiler + JS Sandbox |
-| Python             | WebAssembly ([Pyodide](https://github.com/pyodide/pyodide))  |
-| Java               | [Sololearn](https://www.sololearn.com)                       |
-| Go                 | [Sololearn](https://www.sololearn.com)                       |
-| c/c++              | [Sololearn](https://www.sololearn.com)                       |
-| CSharp             | [Sololearn](https://www.sololearn.com)                       |
-| Swift              | [Sololearn](https://www.sololearn.com)                       |
-| R                  | [Sololearn](https://www.sololearn.com)                       |          
+| Supported language | Provider                                                                                        |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| C/C++              | [Sololearn](https://www.sololearn.com)                                                          |
+| C#                 | [Sololearn](https://www.sololearn.com)                                                          |
+| Go                 | [Sololearn](https://www.sololearn.com)                                                          |
+| Haskell            | https://play.haskell.org                                                                        |
+| HTML & CSS         | [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM)  |
+| Java               | [Sololearn](https://www.sololearn.com)                                                          |
+| JavaScript         | JS Sandbox ([qiankun](https://github.com/umijs/qiankun/blob/master/src/sandbox/index.ts))       |
+| Kotlin             | https://play.kotlinlang.org                                                                     |
+| Python             | WebAssembly ([Pyodide](https://github.com/pyodide/pyodide))                                     |
+| R                  | [Sololearn](https://www.sololearn.com)                                                          |
+| Rust               | https://play.rust-lang.org                                                                      |
+| Swift              | [Sololearn](https://www.sololearn.com)                                                          |
+| TypeScript         | [TypeScript](https://www.typescriptlang.org/) Compiler + JS Sandbox                             |
+| V                  | https://play.vosca.dev/                                                                         |
+| Wenyan             | [Wenyan](https://github.com/wenyan-lang/wenyan)  Compiler + JS Sandbox                          |
 
 **Note**: Only `Python`、`TypeScript`、`JavaScript` are run locally in sandbox(js / webassembly). Other's will send
 code to third-party website to eval the results (eg: https://play.kotlinlang.org, https://play.rust-lang.org).
