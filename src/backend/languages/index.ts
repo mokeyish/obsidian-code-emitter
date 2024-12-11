@@ -3,6 +3,7 @@ import rust from './rust';
 import cpp from './cpp';
 import c from './cpp';
 import go from './go';
+import hs from './haskell';
 import js from './js';
 import ts from './ts';
 import java from './java';
@@ -29,6 +30,8 @@ export default {
   js,
   javascript: js,
   html,
+  hs,
+  haskell: hs,
   ts,
   typescript: ts,
   python,
