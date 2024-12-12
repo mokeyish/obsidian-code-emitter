@@ -3,19 +3,21 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/mokeyish/obsidian-code-emitter?display_name=tag&include_prereleases)
 ![GitHub all releases](https://img.shields.io/github/downloads/mokeyish/obsidian-code-emitter/total?style=flat-square)
 
-This plugin allows code blocks executed interactively like jupyter notebooks. It is based on HTTP REST APIs and JS sandbox and Webassembly technology, and has no local environment requirements, so it supports all platforms supported by Obsidian.
+This plugin allows code blocks to be executed interactively like in Jupyter Notebooks.
+It has no external environment requirements (such as system installations of compilers), because code execution works via local sandboxes using JavaScript or WebAssembly technology, or network requests to online Playgrounds.
+This means it can support all platforms supported by Obsidian.
 
-Supports all Obsidian supported platforms, includes:
+Supports all Obsidian supported platforms, including:
 
 - Windows
-- MacOS
+- macOS
 - Linux
 - Android
-- IOS
+- iOS
 
-Currently, support languages:
+Supported languages:
 
-| Supported language | Provider                                                                                        |
+| Language           | Provider                                                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
 | C/C++              | [Sololearn](https://www.sololearn.com)                                                          |
 | C#                 | [Sololearn](https://www.sololearn.com)                                                          |
@@ -33,10 +35,10 @@ Currently, support languages:
 | V                  | https://play.vosca.dev/                                                                         |
 | Wenyan             | [Wenyan](https://github.com/wenyan-lang/wenyan)  Compiler + JS Sandbox                          |
 
-**Note**: Only `Python`、`TypeScript`、`JavaScript` are run locally in sandbox(js / webassembly). Other's will send
-code to third-party website to eval the results (eg: https://play.kotlinlang.org, https://play.rust-lang.org).
-Please take care to avoid sending your potentially-sensitive source code.
-
+> [!NOTE]  
+> Only `Python`, `TypeScript`, and `JavaScript` are run in a local sandbox (JS/WebAssembly).
+> Others will send code to third-party website to evaluate the results (e.g.: https://play.kotlinlang.org, https://play.rust-lang.org).
+> Please take care to avoid sending your potentially-sensitive source code.
 
 **Ads**: You might like my other plugins 🤪
 
@@ -48,15 +50,15 @@ Please take care to avoid sending your potentially-sensitive source code.
 
 ## Installation
 
-1. Search `Code Emitter` in the community plugins of [obsidian](https://obsidian.md/), and install it.
+1. Search `Code Emitter` in the **Community plugins** section of [Obsidian](https://obsidian.md/), and install it.
 
 ## Examples
 
 ### Python
 
-Install numpy through `micropip`. All available packages are list in [here](https://github.com/mokeyish/pyodide-dist/find/master) (search `whl`).
+Install `numpy` through `micropip`. All available packages are listed [here](https://github.com/mokeyish/pyodide-dist/find/master) (search for `whl`).
 
-#### using numpy
+#### Using `numpy`
 
 ```python
 import micropip
@@ -68,7 +70,7 @@ b = np.random.rand(2,5)
 print(a@b)
 ```
 
-#### using matplotlib
+#### Using `matplotlib`
 
 ```python
 import micropip
@@ -81,7 +83,7 @@ ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
 plt.show()                           # Show the figure.
 ```
 
-### HTML&CSS
+### HTML & CSS
 
 ```html
 <div><span class="h">Hello</span><span class="w">world</span></div>
