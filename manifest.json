@@ -1,7 +1,7 @@
 {
   "id": "code-emitter",
   "name": "Code Emitter",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "minAppVersion": "0.12.0",
   "description": "An Obsidian plugin that allows code blocks to be executed interactively like in Jupyter Notebooks. Supports languages like Rust, Kotlin, Python, JavaScript, TypeScript etc.",
   "author": "YISH",

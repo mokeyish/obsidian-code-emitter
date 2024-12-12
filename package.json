@@ -2,7 +2,7 @@
   "name": "code-emitter",
   "description": "An Obsidian plugin that allows code blocks to be executed interactively like in Jupyter Notebooks. Supports languages like Rust, Kotlin, Python, JavaScript, TypeScript etc.",
   "private": true,
-  "version": "0.3.3",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite build -w -m development",
